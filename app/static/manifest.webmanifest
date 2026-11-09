@@ -1,0 +1,13 @@
+{
+  "name": "心晴 · 情绪日记与自我关怀",
+  "short_name": "心晴",
+  "description": "情绪像天气，来了也会走。30 秒记录心情，团子陪你自我关怀。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF6F0",
+  "theme_color": "#FAF6F0",
+  "icons": [
+    {"src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}

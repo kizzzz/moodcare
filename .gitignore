@@ -1,0 +1,19 @@
+# 本地数据库（含用户数据，不入库）
+*.db
+app/moodcare.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# 全量验证截图（精选见 docs/screenshots/）
+shots/
+
+# 本地环境与杂物
+.env
+.DS_Store

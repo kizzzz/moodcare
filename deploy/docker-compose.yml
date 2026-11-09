@@ -1,0 +1,34 @@
+# 心晴自托管编排（模式同 /opt/citewise）
+#
+# 前提：同机 smart-scheduler-web-1 的 Caddy 占用 80/443，
+# 本栈只接入其外部网络（别名 moodcare 供反代），另暴露 127.0.0.1:8778 供本机排障。
+#
+# 用法：cd /opt/moodcare && sudo docker compose -f deploy/docker-compose.yml up -d --build
+services:
+  moodcare:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: moodcare:latest
+    container_name: moodcare
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    environment:
+      MOODCARE_DB: /data/moodcare.db
+    volumes:
+      - moodcare_data:/data
+    networks:
+      edge:
+        aliases:
+          - moodcare
+    ports:
+      - "127.0.0.1:8778:8000"
+
+networks:
+  edge:
+    external: true
+    name: smart-scheduler_scheduler
+
+volumes:
+  moodcare_data:
